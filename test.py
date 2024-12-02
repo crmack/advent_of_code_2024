@@ -10,6 +10,7 @@ class TestAoC(unittest.TestCase):
 
     def test_day1(self):
         day1.run(BASE_PATH + '/inputs/day1.txt')
+        day1.run_pd(BASE_PATH + '/inputs/day1.txt')
 
 
 if __name__ == '__main__':
