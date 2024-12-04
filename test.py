@@ -14,7 +14,6 @@ class TestAoC(unittest.TestCase):
 
     def test_day2(self):
         day2.run(BASE_PATH + '/inputs/day2.txt')
-        # day2.run_pd(BASE_PATH + '/inputs/day2_test.txt')
 
     def test_day3(self):
         day3.run(BASE_PATH + '/inputs/day3.txt')
