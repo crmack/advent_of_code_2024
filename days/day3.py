@@ -23,6 +23,5 @@ def run(file_name):
 
     result1 = part1(input)
     result2 = part2(input)
-    print(f"Day 2 - Part 1: {result1}")
-    print(f"Day 2 - Part 2: {result2}")
-    
+    print(f"Day 3 - Part 1: {result1}")
+    print(f"Day 3 - Part 2: {result2}")
