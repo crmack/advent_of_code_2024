@@ -1,5 +1,5 @@
 import re
-from utils.coords import Point2D
+from utils.structs import Point2D
 
 FIND_X_RE = r"X"
 FIND_M_RE = r"M"
