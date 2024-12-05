@@ -1,5 +1,6 @@
 import math
 import re
+from functools import cmp_to_key
 from utils.structs import Rule
 
 RULES_RE = r"[0-9]+"
@@ -14,9 +15,9 @@ def check_rules(first, second, rules):
 def check_needs_swap(first, second, rules):
     for rule in rules:
         if rule.first == first and rule.second == second:
-            return True
+            return -1
         
-    return False
+    return 0
 
 def check_order(order, rules, idx=0):
     for i in range(idx, len(order)-1):
@@ -26,13 +27,9 @@ def check_order(order, rules, idx=0):
 
     return int(order[math.floor(len(order)/2.0)])
 
-
 def reorder(order, rules):
-    n = len(order)
-    for i in range(n-1):
-        for j in range(n-i-1):
-            if check_needs_swap(order[j], order[j+1], rules):
-                order[j], order[j+1] = order[j+1], order[j]
+    cmp = cmp_to_key(lambda first, second: check_needs_swap(first, second, rules))
+    order = sorted(order, key=cmp)
 
     return int(order[math.floor(len(order)/2.0)])
 
