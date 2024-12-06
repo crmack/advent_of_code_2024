@@ -57,9 +57,37 @@ def part1(input, location, symbol):
     print(visit_counts)
     return visit_counts.sum()
 
-def part2(input):
+def move_until_stuck_or_gone(layout, location, symbol):
+    done = False
+    hits = {}
+
+    while not done:
+        exited, new_loc, new_sym = move(layout, location, symbol)
+        if new_sym != symbol:
+            if f"({location.x},{location.y})" in hits:
+                if symbol in hits[f"({location.x},{location.y})"]:
+                    return 1
+            else:
+                hits[f"({location.x},{location.y})"] = [symbol]
+        done = exited
+        location = new_loc
+        symbol = new_sym
+
     return 0
 
+def part2(input, location, symbol):
+    loops_made = 0
+
+    for x in range(len(input[0])):
+        for y in range(len(input)):
+            new_input = [row[:] for row in input]
+            if new_input[y][x] == '.':
+                new_input[y][x] = '#'
+                loops_made += move_until_stuck_or_gone(new_input, location, symbol)
+
+    
+    return loops_made
+            
 
 def run(file_name):
     input = []
@@ -67,7 +95,7 @@ def run(file_name):
     starting_symbol = ''
     with open(file_name, 'r') as file:
         for idx, line in enumerate(file):
-            input.append(line.replace('\n', ''))
+            input.append(list(line.replace('\n', '')))
             start = re.search(STARTING_RE, line)
             if start:
                 starting_location.x = start.start(0)
@@ -76,6 +104,6 @@ def run(file_name):
 
 
     result1 = part1(input, starting_location, starting_symbol)
-    result2 = part2(input)
+    result2 = part2(input, starting_location, starting_symbol)
     print(f"Day 6 - Part 1: {result1}")
     print(f"Day 6 - Part 2: {result2}")
