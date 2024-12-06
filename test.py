@@ -25,7 +25,7 @@ class TestAoC(unittest.TestCase):
         day5.run(BASE_PATH + '/inputs/day5.txt')
 
     def test_day6(self):
-        day5.run(BASE_PATH + '/inputs/day6_test.txt')
+        day6.run(BASE_PATH + '/inputs/day6.txt')
 
 
 if __name__ == '__main__':
