@@ -1,3 +1,4 @@
+import numpy as np
 import re
 
 from utils.printy import print2dArray
@@ -45,16 +46,16 @@ def move(layout, current_location, symbol):
     return (done, new_loc, symbol)
 
 def part1(input, location, symbol):
-    visit_counts = [ [ 0 for i in range(len(input[0])) ] for j in range(len(input)) ]
-    visit_counts[location.y][location.x] = 1
+    visit_counts = np.zeros((len(input[0]), len(input)), dtype=int)
+    visit_counts[location.y,location.x] = 1
     exited = False
     while not exited:
         exited, location, symbol = move(input, location, symbol)
         if not exited:
-            visit_counts[location.y][location.x] = 1
+            visit_counts[location.y,location.x] = 1
 
-    print2dArray(visit_counts)
-    return sum(sum(visit_counts,[]))  
+    print(visit_counts)
+    return visit_counts.sum()
 
 def part2(input):
     return 0
