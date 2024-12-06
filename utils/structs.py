@@ -5,6 +5,7 @@ class Point2D:
     x: int
     y: int
 
+
 @dataclass
 class Rule:
     first: int
