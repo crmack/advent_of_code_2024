@@ -10,3 +10,9 @@ class Point2D:
 class Rule:
     first: int
     second: int
+
+@dataclass
+class FileStorage:
+    id: int
+    length: int
+    freespace: int
