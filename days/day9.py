@@ -4,16 +4,17 @@ NO_VALUE = -1
 
 def initial_placement(instructions):
     output = []
-    for idx, instruction in enumerate(instructions):
-        for i in range(0, instruction.length):
+    for instruction in instructions:
+        for _ in range(0, instruction.length):
             output.append(instruction.id)
-        for i in range(0, instruction.freespace):
+        for _ in range(0, instruction.freespace):
             output.append(NO_VALUE)
         
     return output
 
 def move_instruction(instruction, output):
     n_inserted = 0
+    
     output = [x if x != instruction.id else NO_VALUE for x in output]
     for idx in range(0, len(output)):
         if output[idx] == NO_VALUE:
@@ -24,8 +25,37 @@ def move_instruction(instruction, output):
 
     return output
 
+def move_full_instruction(instruction, output):
+    n_needed = instruction.length
+    original_indices = [i for i, x in enumerate(output) if x == instruction.id]
 
-def part1(input):
+    start_idx = original_indices[0]
+
+    did_move = False
+    # check if there is enough room in a given empty space
+    for idx in range(0, start_idx):
+        n_found = 0
+        s = idx
+        while s < len(output) and output[s] == NO_VALUE:
+            n_found += 1
+            s += 1
+        
+        if n_found >= n_needed:
+            for i in range(idx, idx+n_needed):
+                output[i] = instruction.id
+
+            did_move = True
+            break
+
+
+    if did_move:
+        for idx in original_indices:
+            output[idx] = NO_VALUE
+
+    return output
+
+
+def part1(input, move_whole=False):
     total = 0
 
     input_list = list(input)
@@ -43,10 +73,10 @@ def part1(input):
     instructions = instructions[1:]
 
     for instruction in reversed(instructions):
-        output = move_instruction(instruction, output)
-
-    # print(instructions)
-    # print(output)
+        if move_whole:
+            output = move_full_instruction(instruction, output)
+        else:
+            output = move_instruction(instruction, output)
 
     for idx, out in enumerate(output):
         if out != NO_VALUE:
@@ -55,13 +85,13 @@ def part1(input):
     return total
 
 def part2(input):
-    return 0
+    return part1(input, True)
 
 def run(file_name):
     with open(file_name, 'r') as file:
         input = file.read().replace('\n', '')
 
     result1 = part1(input)
-    result2 = part2(input)
     print(f"Day 9 - Part 1: {result1}")
-    print(f"Day 9 - Part 2: {result2}")
+    # result2 = part2(input)
+    # print(f"Day 9 - Part 2: {result2}")
