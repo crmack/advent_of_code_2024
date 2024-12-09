@@ -13,9 +13,17 @@ def initial_placement(instructions):
     return output
 
 def move_instruction(instruction, output):
-    n_inserted = 0
+    # Make sure we need to even check this
+    first_empty = output.index(NO_VALUE)
+    ins_start = output.index(instruction.id)
+    if ins_start <= first_empty:
+        return output
     
+    # Zero out the old positions (if it ends up overlapping back into its same spot; fine)
     output = [x if x != instruction.id else NO_VALUE for x in output]
+
+    # Do the moving
+    n_inserted = 0
     for idx in range(0, len(output)):
         if output[idx] == NO_VALUE:
             output[idx] = instruction.id
@@ -30,9 +38,13 @@ def move_full_instruction(instruction, output):
     original_indices = [i for i, x in enumerate(output) if x == instruction.id]
 
     start_idx = original_indices[0]
+    # Don't bother if there are no empty spaces to the left of the current instruction
+    first_empty = output.index(NO_VALUE)
+    if start_idx <= first_empty:
+        return output
 
     did_move = False
-    # check if there is enough room in a given empty space
+    # check if there is enough room in any empty space
     for idx in range(0, start_idx):
         n_found = 0
         s = idx
@@ -93,5 +105,5 @@ def run(file_name):
 
     result1 = part1(input)
     print(f"Day 9 - Part 1: {result1}")
-    # result2 = part2(input)
-    # print(f"Day 9 - Part 2: {result2}")
+    result2 = part2(input)
+    print(f"Day 9 - Part 2: {result2}")
