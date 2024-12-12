@@ -22,3 +22,8 @@ class FileStorage:
     id: int
     length: int
     freespace: int
+
+@dataclass
+class Node:
+    val: int
+    next: None
