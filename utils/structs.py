@@ -11,6 +11,11 @@ class Point2DWithVal:
     y: int
     val: int
 
+@dataclass
+class Point2DWithStrVal:
+    x: int
+    y: int
+    val: str
 
 @dataclass
 class Rule:
