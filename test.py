@@ -3,7 +3,7 @@ import unittest
 
 from days import (
     day1, day2, day3, day4, day5, day6, day7,
-    day8, day9, day10, day11, day12, day13
+    day8, day9, day10, day11, day12, day13, day14
 )
 
 BASE_PATH = '/Users/chrismack/projects/learning/adventofcode/advent_of_code_2024/'
@@ -49,6 +49,9 @@ class TestAoC(unittest.TestCase):
 
     def test_day13(self):
         day13.run(BASE_PATH + '/inputs/day13.txt')
+
+    def test_day14(self):
+        day14.run(BASE_PATH + '/inputs/day14.txt')
 
 
 if __name__ == '__main__':

@@ -32,3 +32,10 @@ class FileStorage:
 class Node:
     val: int
     next: None
+
+@dataclass
+class Guard:
+    x: int
+    y: int
+    vx: int
+    vy: int
