@@ -31,3 +31,6 @@ def split_ll_in_half(head):
         h2 = temp
 
     return (head, h2)
+
+def twoDZeros(x, y):
+    return [ [0]*(x+1) for _ in range(y+1) ]
