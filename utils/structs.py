@@ -39,3 +39,8 @@ class Guard:
     y: int
     vx: int
     vy: int
+
+@dataclass
+class Box:
+    l: Point2D
+    r: Point2D
