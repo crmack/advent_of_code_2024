@@ -3,7 +3,8 @@ import unittest
 
 from days import (
     day1, day2, day3, day4, day5, day6, day7,
-    day8, day9, day10, day11, day12, day13, day14
+    day8, day9, day10, day11, day12, day13, day14,
+    day15
 )
 
 BASE_PATH = '/Users/chrismack/projects/learning/adventofcode/advent_of_code_2024/'
@@ -53,7 +54,10 @@ class TestAoC(unittest.TestCase):
     def test_day14(self):
         day14.run(BASE_PATH + '/inputs/day14.txt')
 
+    def test_day15(self):
+        day15.run(BASE_PATH + '/inputs/day15.txt')
+
 
 if __name__ == '__main__':
-    sys.setrecursionlimit(100000)
+    # sys.setrecursionlimit(10)
     unittest.main()
