@@ -1,8 +1,0 @@
-[Box(l=Point2D(x=6, y=1), r=Point2D(x=7, y=1)), 
-Box(l=Point2D(x=12, y=1), r=Point2D(x=13, y=1)), 
-Box(l=Point2D(x=16, y=1), r=Point2D(x=17, y=1)), 
-Box(l=Point2D(x=14, y=2), r=Point2D(x=15, y=2)), 
-Box(l=Point2D(x=4, y=3), r=Point2D(x=5, y=3)), 
-Box(l=Point2D(x=6, y=3), r=Point2D(x=7, y=3)), 
-Box(l=Point2D(x=12, y=3), r=Point2D(x=13, y=3)), Box(l=Point2D(x=16, y=3), r=Point2D(x=17, y=3)), Box(l=Point2D(x=14, y=4), r=Point2D(x=15, y=4)), Box(l=Point2D(x=2, y=5), r=Point2D(x=3, y=5)), Box(l=Point2D(x=2, y=6), r=Point2D(x=3, y=6)), Box(l=Point2D(x=14, y=6), r=Point2D(x=15, y=6)), Box(l=Point2D(x=4, y=7), r=Point2D(x=5, y=7)), Box(l=Point2D(x=6, y=7), r=Point2D(x=7, y=7)), Box(l=Point2D(x=14, y=7), r=Point2D(x=15, y=7)), Box(l=Point2D(x=16, y=7), r=Point2D(x=17, y=7)), Box(l=Point2D(x=5, y=4), r=Point2D(x=6, y=4)), Box(l=Point2D(x=11, y=7), r=Point2D(x=12, y=7)), Box(l=Point2D(x=10, y=8), r=Point2D(x=11, y=8))]
-
