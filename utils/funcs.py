@@ -34,3 +34,6 @@ def split_ll_in_half(head):
 
 def twoDZeros(x, y):
     return [ [0]*(x+1) for _ in range(y+1) ]
+
+def twoDWhatevers(x, y, whatever):
+    return [ [whatever]*(x) for _ in range(y) ]
