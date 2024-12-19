@@ -10,7 +10,7 @@ RE_NUM = r"-?\d+"
 MOVES = [P(1,0), P(0,1), P(-1,0), P(0,-1)]
 
 def dijkstra(start, end, walls):
-    # Same as Day 16 except turning is free and you can turn 180
+    # Same as Day 16 except turning is free
     q = [(0, start, 0)]
     seen = set()
     while q:
@@ -27,7 +27,6 @@ def dijkstra(start, end, walls):
             heapq.heappush(q,(cost+1, next_move, dir_idx))
         heapq.heappush(q,(cost, pos, (dir_idx+1)%4))
         heapq.heappush(q,(cost, pos, (dir_idx-1)%4))
-        heapq.heappush(q,(cost, pos, (dir_idx-2)%4))
 
 def part1(instructions, n_to_run, sx, sy):
     walls = instructions[:n_to_run]
